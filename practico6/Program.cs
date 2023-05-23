@@ -12,22 +12,21 @@ string? numeroIngresado;
 bool valido;
 
 do{
-    Console.Write("Ingrese un numero positivo: ");
+    Console.Write("Ingrese un número positivo: ");
     numeroIngresado = Console.ReadLine();
     valido = int.TryParse(numeroIngresado, out num);
     if(!valido){
-        Console.WriteLine("ERROR. Dato invalido");
+        Console.WriteLine("ERROR. Dato inválido.");
         valido = false;
     } else{
         if(num <= 0){
-            Console.WriteLine("ERROR. No se ingreso un numero positivo.");
+            Console.WriteLine("ERROR. No se ingresú un número positivo.");
             valido = false;
         } else{
             invertirNumero(num);
         }
     }
 }while(!valido);
-
 
 void invertirNumero(int num){
     int aux;
@@ -43,3 +42,5 @@ void invertirNumero(int num){
         Console.Write("\n");
     }
 }
+
+
