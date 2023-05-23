@@ -65,7 +65,7 @@ do{
         } else{
             validoOP = true;
             if(num_op != 5){
-                operaciones(num_op);
+                operacionesBasicas(num_op);
                 Console.WriteLine("\n¿Desea realizar otra operación? Sí / No");
                 seguir = Console.ReadLine();
                 if(seguir == "Si" || seguir == "Sí" || seguir == "si" || seguir == "sí"){
@@ -82,7 +82,7 @@ do{
 
 
 
-void operaciones(int num_op){
+void operacionesBasicas(int num_op){
     float a, b, res = 0;
     string? num1, num2;
 
