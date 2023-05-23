@@ -43,7 +43,7 @@ void invertirNumero(int num){
     }
 }*/
 
-//EJERCICIO 02
+//EJERCICIO 02 Y 03
 int num_op = 0;
 string? operacion, seguir;
 bool validoOP = false, continuar = false;
