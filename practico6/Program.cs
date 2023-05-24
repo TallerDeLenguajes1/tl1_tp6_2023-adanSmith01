@@ -108,16 +108,16 @@ void operaciones(int num_op){
 
     switch(num_op){
         case 1:
-        Console.WriteLine("\nResultado de la operación: " + (a + b));
+        Console.WriteLine($"La suma de {a.ToString()} y de {b.ToString()} es igual a: {(a + b).ToString()}");
         break;
         case 2:
-        Console.WriteLine("\nResultado de la operación: " + (a - b));
+        Console.WriteLine($"La diferencia de {a.ToString()} y de {b.ToString()} es igual a: {(a - b).ToString()}");
         break;
         case 3:
-        Console.WriteLine("\nResultado de la operación: " + (a * b));
+        Console.WriteLine($"El producto de {a.ToString()} y de {b.ToString()} es igual a: {(a * b).ToString()}");
         break;
         case 4:
-        Console.WriteLine("\nResultado de la operación: " + (a / b));
+        Console.WriteLine($"La división de {a.ToString()} y de {b.ToString()} es igual a: {(a / b).ToString()}");
         break;
     }
 }
@@ -134,24 +134,25 @@ void operacionesAvanzadas(int num_op){
             if(!float.TryParse(numIngresado, out a)) Console.WriteLine("\nERROR. Número inválido.\n");
         }while(!float.TryParse(numIngresado, out a));
 
+        Console.Write("\n");
         switch(num_op){
             case 5:
-            Console.WriteLine("\nResultado de la operación: " + Math.Abs(a));
+            Console.WriteLine($"El valor absoluto de {a} es : {Math.Abs(a).ToString()}");
             break;
             case 6:
-            Console.WriteLine("\nResultado de la operación: " + Math.Pow(a, 2));
+            Console.WriteLine($"El cuadrado de {a} es : {Math.Pow(a, 2).ToString()}");
             break;
             case 7:
-            Console.WriteLine("\nResultado de la operación: " + Math.Sqrt(a));
+            Console.WriteLine($"La raíz cuadrada de {a} es : {Math.Sqrt(a).ToString()}");
             break;
             case 8:
-            Console.WriteLine("\nResultado de la operación: " + Math.Sin(a));
+            Console.WriteLine($"El seno de {a} es : {Math.Sin(a).ToString()}");
             break;
             case 9:
-            Console.WriteLine("\nResultado de la operación: " + Math.Cos(a));
+            Console.WriteLine($"El coseno de {a} es : {Math.Cos(a).ToString()}");
             break;
             case 10:
-            Console.WriteLine("\nResultado de la operación: " + Math.Round(a));
+            Console.WriteLine($"La parte entera de {a} es : {Math.Round(a).ToString()}");
             break;
         }
     } else{
@@ -164,9 +165,168 @@ void operacionesAvanzadas(int num_op){
         }while(!float.TryParse(num1, out a) || !float.TryParse(num2, out b));
 
         if(num_op == 11){
-            Console.WriteLine("\nResultado de la operación: " + Math.Max(a, b));
+            Console.WriteLine($"El máximo entre {a.ToString()} y {b.ToString()} es: {Math.Max(a, b).ToString()}");
         } else{
-            Console.WriteLine("\nResultado de la operación: " + Math.Min(a, b));
+            Console.WriteLine($"El mínimo entre {a.ToString()} y {b.ToString()} es: {Math.Max(a, b).ToString()}");
         }
     }
+}
+
+// EJERCICIO 04
+string? cadenaIngresada, op, cadenaAConcatenar, cadenaOcurrencia;
+int operacionCadena = 0;
+ConsoleKeyInfo caracterSep;
+char sep;
+string[] cadenaDes;
+bool valido = false;
+
+do{
+    Console.WriteLine("\n===========OPERACIONES DE CADENA===========\n");
+    Console.WriteLine("\n1- Longitud de la cadena");
+    Console.WriteLine("2- Concatenar dos cadenas");
+    Console.WriteLine("3- Extraer una subcadena");
+    Console.WriteLine("4- Recorrer la cadena por cada caracter");
+    Console.WriteLine("5- Buscar la ocurrencia de una palabra en una cadena ingresada");
+    Console.WriteLine("6- Convertir la cadena ingresada a mayúscula");
+    Console.WriteLine("7- Convertir la cadena ingresada a minúscula");
+    Console.WriteLine("8- Separar una cadena por el caracter ingresado");
+    Console.WriteLine("9- Resolver una expresión matemática");
+    Console.WriteLine("10- Ninguna operación");
+    Console.Write("\nElija la operación: ");
+    op = Console.ReadLine();
+    if(!int.TryParse(op, out operacionCadena)){
+        Console.WriteLine("\nERROR. Número de operación inválido\n");
+    } else{
+        if(operacionCadena < 1 || operacionCadena > 10){
+            Console.WriteLine("\nERROR. Número de operación inválido\n");
+        } else{
+            valido = true;
+            if(operacionCadena != 9 && operacionCadena != 10){
+                do{
+                    Console.Write("Ingrese una cadena: ");
+                    cadenaIngresada = Console.ReadLine();
+                    if(cadenaIngresada == "" || cadenaIngresada == " ") Console.WriteLine("\nERROR. Cadena de texto inválida\n");
+                }while(cadenaIngresada == "" || cadenaIngresada == " ");
+
+                if(cadenaIngresada != null){
+                    switch(operacionCadena){
+                        case 1:
+                        Console.WriteLine($"Longitud de la cadena ingresada: {cadenaIngresada.Length}");
+                        break;
+                        case 2:
+                        do{
+                            Console.Write("Ingrese una otra cadena: ");
+                            cadenaAConcatenar = Console.ReadLine();
+                            if(String.IsNullOrEmpty(cadenaAConcatenar)) Console.WriteLine("\nERROR. Cadena de texto inválida\n");
+                        }while(String.IsNullOrEmpty(cadenaAConcatenar));
+
+                        Console.WriteLine($"\nCadena resultante: {cadenaIngresada + cadenaAConcatenar}\n");
+                        break;
+                        case 3:
+                        Console.WriteLine("\nSubcadena extraída desde el segundo elemento: " + cadenaIngresada.Substring(2));
+                        break;
+                        case 4:
+                        Console.Write("Cadena recorrida por caracter:");
+                        foreach (char elem in cadenaIngresada){
+                            Console.Write($" {elem}");
+                        }
+                        Console.WriteLine("\n");
+                        break;
+                        case 5:
+                        do{
+                            Console.Write("Ingrese la subcadena a buscar: ");
+                            cadenaOcurrencia = Console.ReadLine();
+                            if(String.IsNullOrEmpty(cadenaOcurrencia)) Console.WriteLine("\nERROR. Cadena de texto inválida\n");
+                        }while(String.IsNullOrEmpty(cadenaOcurrencia));
+                        
+                        if(cadenaIngresada.Contains(cadenaOcurrencia)){
+                            Console.WriteLine($"La subcadena {cadenaOcurrencia} se encuentra dentro de la cadena ingresada.");
+                        } else{
+                            Console.WriteLine($"La subcadena {cadenaOcurrencia} no se encuentra dentro de la cadena ingresada.");
+                        }
+                        break;
+                        case 6:
+                        Console.WriteLine($"Cadena ingresada en mayúscula: {cadenaIngresada.ToUpper()}");
+                        break;
+                        case 7:
+                        Console.WriteLine($"Cadena ingresada en minúscula: {cadenaIngresada.ToLower()}");
+                        break;
+                        case 8:
+                        Console.Write("Ingrese el caracter separador: ");
+                        caracterSep = Console.ReadKey();
+                        sep = caracterSep.KeyChar;
+                        cadenaDes = cadenaIngresada.Split(sep);
+                        Console.WriteLine("\nResultado: ");
+                        foreach(string cad in cadenaDes){
+                            Console.WriteLine(cad);
+                        }
+                        break;
+                    }
+                }
+            } else{
+                if(operacionCadena == 9){
+                    resolverExpresion();
+                }
+            }
+            
+        }
+    }
+}while(!valido || operacionCadena != 10);
+
+
+
+void resolverExpresion(){
+    string? expresionMat;
+    string[] operandos;
+    bool expresionValida = false, operadorEncontrado = false;
+    int i = 0;
+    float a, b;
+    char op;
+
+    do{
+        Console.Write("\nIngrese una expresión matemática simple (Solo dos numeros para operar): ");
+        expresionMat = Console.ReadLine();
+        operadorEncontrado = false;
+        i = 0;
+        if(expresionMat != null){
+            while(!operadorEncontrado && i < expresionMat.Length){
+                if(expresionMat[i] == '+' || expresionMat[i] == '-' || expresionMat[i] == '*' || expresionMat[i] == 'x' || expresionMat[i] == '/'){
+                    operadorEncontrado = true;
+                }
+                i += 1;
+            }
+
+            if(operadorEncontrado){
+                operandos = expresionMat.Split(expresionMat[i - 1]);
+                if(operandos.Length != 2){
+                    Console.WriteLine("\nERROR. Solo se puede ingresar dos números\n");
+                } else{
+                    if(!float.TryParse(operandos[0], out a) || !float.TryParse(operandos[1], out b)){
+                        Console.WriteLine("\nERROR. Expresión inválida.\n");
+                    } else{
+                        expresionValida = true;
+                        op = expresionMat[i - 1];
+
+                        switch(op){
+                            case '+':
+                            Console.WriteLine($"Resultado de {a}{op}{b}: {a + b}");
+                            break;
+                            case '-':
+                            Console.WriteLine($"Resultado de {a}{op}{b}: {a - b}");
+                            break;
+                            case '*':
+                            case 'x':
+                            Console.WriteLine($"Resultado de {a}{op}{b}: {a * b}");
+                            break;
+                            case '/':
+                            Console.WriteLine($"Resultado de {a}{op}{b}: {a / b}");
+                            break;
+                        }
+                    }
+                }
+            } else{
+                Console.WriteLine("\nERROR. Expresión inválida\n");
+            }
+        }
+    }while(!expresionValida);
 }
