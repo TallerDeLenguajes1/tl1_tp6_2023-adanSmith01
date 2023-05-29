@@ -43,9 +43,10 @@ void invertirNumero(int num){
     }
 }*/
 
+using System.Text.RegularExpressions;
 //EJERCICIO 02 Y 03
-/*int num_op = 0;
-string? operacion, seguir;
+int num_op = 0;
+string operacion, seguir;
 bool validoOP = false, continuar = false;
 
 do{
@@ -96,7 +97,7 @@ do{
 
 void operaciones(int num_op){
     float a, b;
-    string? num1, num2;
+    string num1, num2;
 
     do{
         Console.Write("Num1: ");
@@ -124,7 +125,7 @@ void operaciones(int num_op){
 
 void operacionesAvanzadas(int num_op){
     float a, b;
-    string? numIngresado, num1, num2;
+    string numIngresado, num1, num2;
 
     if(num_op <= 10){
 
@@ -173,7 +174,7 @@ void operacionesAvanzadas(int num_op){
 }
 
 // EJERCICIO 04
-string? cadenaIngresada, op, cadenaAConcatenar, cadenaOcurrencia;
+string cadenaIngresada, op, cadenaAConcatenar, cadenaOcurrencia;
 int operacionCadena = 0;
 ConsoleKeyInfo caracterSep;
 char sep;
@@ -276,7 +277,7 @@ do{
 
 
 void resolverExpresion(){
-    string? expresionMat;
+    string expresionMat;
     string[] operandos;
     bool expresionValida = false, operadorEncontrado = false;
     int i = 0;
@@ -329,10 +330,9 @@ void resolverExpresion(){
             }
         }
     }while(!expresionValida);
-}*/
+}
 
 // EJERCICIO 05
-using System.Text.RegularExpressions;
 
 Console.Write("Ingrese una dirección de mail: ");
 string correoElec = Console.ReadLine();
