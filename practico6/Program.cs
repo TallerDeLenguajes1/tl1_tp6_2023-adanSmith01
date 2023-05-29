@@ -44,7 +44,7 @@ void invertirNumero(int num){
 }*/
 
 //EJERCICIO 02 Y 03
-int num_op = 0;
+/*int num_op = 0;
 string? operacion, seguir;
 bool validoOP = false, continuar = false;
 
@@ -329,4 +329,31 @@ void resolverExpresion(){
             }
         }
     }while(!expresionValida);
+}*/
+
+// EJERCICIO 05
+using System.Text.RegularExpressions;
+
+Console.Write("Ingrese una dirección de mail: ");
+string correoElec = Console.ReadLine();
+
+string patronCorreo = @"(@)(.+)$";
+
+if(Regex.IsMatch(correoElec, patronCorreo)){
+    Console.WriteLine("Es una dirección de correo electrónico válido.");
+    Console.WriteLine($"La dirección de mail que ingreso es: {correoElec}");
+} else{
+    Console.WriteLine("No es una dirección válida.");
+}
+
+Console.Write("Ingrese una dirección web: ");
+string direccionWeb = Console.ReadLine();
+
+string patronWeb = @"^(https?://)?(www\.)?[\w-]+(\.[\w-]+)+(/[^\s]*)?$";
+
+if(Regex.IsMatch(direccionWeb, patronWeb)){
+    Console.WriteLine("Es una dirección web válida.");
+    Console.WriteLine($"La dirección de mail que ingreso es: {direccionWeb}");
+} else{
+    Console.WriteLine("No es una dirección web válida.");
 }
